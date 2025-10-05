@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -I inc -I inc/libft
 
 SRCDIR = src
 
-SRCS = $(SRCDIR)/main.c $(SRCDIR)/push_swap_utils.c
+SRCS = $(SRCDIR)/main.c $(SRCDIR)/push_swap_utils.c $(SRCDIR)/push_swap_parser.c $(SRCDIR)/push_swap_moves.c
 
 OBJDIR = objs
 
