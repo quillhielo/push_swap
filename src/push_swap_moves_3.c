@@ -1,72 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_moves.c                                  :+:      :+:    :+:   */
+/*   push_swap_moves_3.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:12 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/07 18:44:15 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/07 18:12:27 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_framework *fw)
+void	reverse_rotate_a(t_framework *fw)
 {
-	t_node	*top;
 	t_node	*bottom;
+	t_node	*temp;
 
 	if (!fw->stack_a || !fw->stack_a->next)
 		return ;
-	top = fw->stack_a;
-	bottom = fw->stack_a->next;
-	top->next = bottom->next;
-	bottom->next = top;
+	temp = fw->stack_a;
+	while (temp->next && temp->next->next)
+		temp = temp->next;
+	bottom = temp->next;
+	temp->next = NULL;
+	bottom->next = fw->stack_a;
 	fw->stack_a = bottom;
 }
 
-void	swap_b(t_framework *fw)
+void	reverse_rotate_b(t_framework *fw)
 {
-	t_node	*top;
 	t_node	*bottom;
+	t_node	*temp;
 
 	if (!fw->stack_b || !fw->stack_b->next)
 		return ;
-	top = fw->stack_b;
-	bottom = fw->stack_b->next;
-	top->next = bottom->next;
-	bottom->next = top;
+	temp = fw->stack_b;
+	while (temp->next && temp->next->next)
+		temp = temp->next;
+	bottom = temp->next;
+	temp->next = NULL;
+	bottom->next = fw->stack_b;
 	fw->stack_b = bottom;
 }
 
-
-void	swap_ss(t_framework *fw)
+void	reverse_rotate_rrr(t_framework *fw)
 {
-	swap_a(fw);
-	swap_b(fw);
-}
-
-
-void	push_a(t_framework *fw)
-{
-	t_node	*new_a;
-
-	if (fw->stack_b == NULL)
-		return ;
-	new_a = fw->stack_b;
-	fw->stack_b = fw->stack_b->next;
-    new_a->next = NULL;
-	place_node_a(fw, new_a);
-}
-
-
-void	push_b(t_framework *fw)
-{
-	t_node	*new_b;
-
-	new_b = fw->stack_a;
-	fw->stack_a = fw->stack_a->next;
-    new_b->next = NULL;
-	place_node_b(fw, new_b);
+	reverse_rotate_a(fw);
+	reverse_rotate_b(fw);
 }

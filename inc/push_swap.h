@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:31:00 by alba              #+#    #+#             */
-/*   Updated: 2025/10/01 14:52:58 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/07 17:01:20 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,11 @@ void 	swap_b(t_framework *fw);
 void 	swap_ss(t_framework *fw);
 void    push_a(t_framework *fw);
 void    push_b(t_framework *fw);
+void 	rotate_a(t_framework *fw);
+void 	rotate_b(t_framework *fw);
+void    rotate_rr(t_framework *fw);
+void	reverse_rotate_a(t_framework *fw);
+void	reverse_rotate_b(t_framework *fw);
+void    reverse_rotate_rrr(t_framework *fw);
 
 #endif
