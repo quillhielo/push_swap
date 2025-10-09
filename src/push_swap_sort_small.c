@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:31:26 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/09 19:30:44 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/09 19:59:36 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,22 @@ void	sort_three(t_framework *fw)
 		sa(fw);	
 	}
 }
+int	is_sorted(t_framework *fw)
+{
+	t_node	*temp;
+	temp = fw->stack_a;
+	while (temp && temp->next)
+	{
+		if(temp->value  > temp->next->value)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
 
 void sort_two(t_framework *fw)
 {
-    if (fw->stack_a->value > fw->stack_a->next->value)
+    if (!is_sorted(fw))
         sa(fw);
 }
 void	push_min_to_b(t_framework *fw, int min, int pos_min)
@@ -64,6 +76,8 @@ void	sort_four(t_framework *fw)
 	int pos_min;
 	t_node	*temp;
 	
+	if (is_sorted(fw))
+        return ;
 	min = fw->stack_a->value;
 	temp = fw->stack_a->next;
 	pos = 2;
@@ -91,6 +105,8 @@ void	sort_five(t_framework *fw)
 	int pos_min;
 	t_node	*temp;
 	
+	if (is_sorted(fw))
+        return ;
 	min = fw->stack_a->value;
 	temp = fw->stack_a->next;
 	pos = 2;

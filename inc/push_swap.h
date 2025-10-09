@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:31:00 by alba              #+#    #+#             */
-/*   Updated: 2025/10/09 19:32:33 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/09 19:59:22 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	rra(t_framework *fw);
 void	rrb(t_framework *fw);
 void    rrr(t_framework *fw);
 void	push_min_to_b(t_framework *fw, int min, int pos_min);
+int		is_sorted(t_framework *fw);
 void	sort_two(t_framework *fw);
 void	sort_three(t_framework *fw);
 void	sort_four(t_framework *fw);
