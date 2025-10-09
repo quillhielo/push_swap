@@ -6,13 +6,13 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:12 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/07 18:44:15 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:42:34 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_framework *fw)
+void	sa(t_framework *fw)
 {
 	t_node	*top;
 	t_node	*bottom;
@@ -24,9 +24,10 @@ void	swap_a(t_framework *fw)
 	top->next = bottom->next;
 	bottom->next = top;
 	fw->stack_a = bottom;
+	write(1, "sa\n", 3);
 }
 
-void	swap_b(t_framework *fw)
+void	sb(t_framework *fw)
 {
 	t_node	*top;
 	t_node	*bottom;
@@ -38,17 +39,21 @@ void	swap_b(t_framework *fw)
 	top->next = bottom->next;
 	bottom->next = top;
 	fw->stack_b = bottom;
+	write(1, "sb\n", 3);
+
 }
 
 
-void	swap_ss(t_framework *fw)
+void	ss(t_framework *fw)
 {
-	swap_a(fw);
-	swap_b(fw);
+	sa(fw);
+	sb(fw);
+	write(1, "ss\n", 3);
+
 }
 
 
-void	push_a(t_framework *fw)
+void	pa(t_framework *fw)
 {
 	t_node	*new_a;
 
@@ -58,10 +63,12 @@ void	push_a(t_framework *fw)
 	fw->stack_b = fw->stack_b->next;
     new_a->next = NULL;
 	place_node_a(fw, new_a);
+	write(1, "pa\n", 3);
+
 }
 
 
-void	push_b(t_framework *fw)
+void	pb(t_framework *fw)
 {
 	t_node	*new_b;
 
@@ -69,4 +76,6 @@ void	push_b(t_framework *fw)
 	fw->stack_a = fw->stack_a->next;
     new_b->next = NULL;
 	place_node_b(fw, new_b);
+	write(1, "pb\n", 3);
+
 }

@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:35 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/07 18:54:39 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:47:37 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,9 @@ int	main(int argc, char **argv)
 		parser(argv[i], fw);
 		i--;
 	}
+	if(fw->amount <= 5)
+		sort_small(fw);
+	printf("----------------------------------------------------\n");
 	print_stack(fw->stack_a);
-	printf("Número de dígitos: %i\n", fw->amount);
-	printf("----------\n");
-	push_b(fw);
-	print_stack(fw->stack_a);
-	printf("----------\n");
-	print_stack(fw->stack_b);
 	return (0);
 }

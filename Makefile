@@ -6,7 +6,7 @@
 #    By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 14:45:50 by acarbajo          #+#    #+#              #
-#    Updated: 2025/10/07 16:52:42 by acarbajo         ###   ########.fr        #
+#    Updated: 2025/10/09 16:35:54 by acarbajo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAGS = -Wall -Wextra -Werror -I inc -I inc/libft
 
 SRCDIR = src
 
-SRCS = $(SRCDIR)/main.c $(SRCDIR)/push_swap_utils.c $(SRCDIR)/push_swap_parser.c $(SRCDIR)/push_swap_moves.c $(SRCDIR)/push_swap_moves_2.c $(SRCDIR)/push_swap_moves_3.c
+SRCS = $(SRCDIR)/main.c $(SRCDIR)/push_swap_utils.c $(SRCDIR)/push_swap_parser.c $(SRCDIR)/push_swap_moves.c \
+		$(SRCDIR)/push_swap_moves_2.c $(SRCDIR)/push_swap_moves_3.c $(SRCDIR)/push_swap_sort_small.c
 
 OBJDIR = objs
 

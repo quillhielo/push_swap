@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:31:00 by alba              #+#    #+#             */
-/*   Updated: 2025/10/07 17:01:20 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/09 19:32:33 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,23 @@ void	dupe_check(int number, t_framework *fw);
 void	limits(int i);
 void	is_number(char *str);
 int		parser(char *str, t_framework *fw);
-void 	swap_a(t_framework *fw);
-void 	swap_b(t_framework *fw);
-void 	swap_ss(t_framework *fw);
-void    push_a(t_framework *fw);
-void    push_b(t_framework *fw);
-void 	rotate_a(t_framework *fw);
-void 	rotate_b(t_framework *fw);
-void    rotate_rr(t_framework *fw);
-void	reverse_rotate_a(t_framework *fw);
-void	reverse_rotate_b(t_framework *fw);
-void    reverse_rotate_rrr(t_framework *fw);
+void 	sa(t_framework *fw);
+void 	sb(t_framework *fw);
+void 	ss(t_framework *fw);
+void    pa(t_framework *fw);
+void    pb(t_framework *fw);
+void 	ra(t_framework *fw);
+void 	rb(t_framework *fw);
+void    rr(t_framework *fw);
+void	rra(t_framework *fw);
+void	rrb(t_framework *fw);
+void    rrr(t_framework *fw);
+void	push_min_to_b(t_framework *fw, int min, int pos_min);
+void	sort_two(t_framework *fw);
+void	sort_three(t_framework *fw);
+void	sort_four(t_framework *fw);
+void	sort_five(t_framework *fw);
+void	sort_small(t_framework *fw);
+
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:12 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/07 18:47:47 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:41:37 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_framework *fw)
+void	ra(t_framework *fw)
 {
 	t_node	*top;
 	t_node	*temp;
@@ -26,9 +26,11 @@ void	rotate_a(t_framework *fw)
 		temp = temp->next;
 	temp->next = top;
 	top->next = NULL;
+	write(1, "ra\n", 3);
+
 }
 
-void	rotate_b(t_framework *fw)
+void	rb(t_framework *fw)
 {
 	t_node	*top;
 	t_node	*temp;
@@ -42,10 +44,13 @@ void	rotate_b(t_framework *fw)
 		temp = temp->next;
 	temp->next = top;
 	top->next = NULL;
+	write(1, "rb\n", 3);
+
 }
 
-void	rotate_rr(t_framework *fw)
+void	rr(t_framework *fw)
 {
-	rotate_a(fw);
-	rotate_b(fw);
+	ra(fw);
+	rb(fw);
+	write(1, "rr\n", 3);
 }
