@@ -20,7 +20,7 @@ void	print_stack(t_node *s_a)
 	num = s_a;
 	while (num)
 	{
-		printf("%i\n", num->value);
+		printf("%i --- %i\n", num->value, num->index);
 		temp = num->next;
 		num = temp;
 	}
@@ -43,8 +43,11 @@ int	main(int argc, char **argv)
 		parser(argv[i], fw);
 		i--;
 	}
+	if (fw->amount <= 1)
+		error("Not enaugh numbers\n");
 	if(fw->amount <= 5)
 		sort_small(fw);
+	radix_sort(fw);
 	printf("----------------------------------------------------\n");
 	print_stack(fw->stack_a);
 	return (0);
