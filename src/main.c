@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		i--;
 	}
 	if (fw->amount <= 1)
-		error("Not enaugh numbers\n");
+		return (0);
 	if(fw->amount <= 5)
 		sort_small(fw);
 	radix_sort(fw);
