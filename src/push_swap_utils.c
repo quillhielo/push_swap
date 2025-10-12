@@ -28,6 +28,7 @@ t_node	*node_init(int value)
 	if (!new)
 		error("Allocating failure\n");
 	new->value = value;
+	new->index = -1;
 	new->next = NULL;
 	return (new);
 }
