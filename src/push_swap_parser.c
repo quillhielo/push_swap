@@ -27,10 +27,37 @@ void	dupe_check(int number, t_framework *fw)
 	}
 }
 
-void	limits(int i)
+int	ft_atoi_limits (const char *nptr)
 {
-	if (i < INT_MIN || i > INT_MAX)
-		error("Surpassed limits\n");
+	size_t		i;
+	long		s;
+	long		r;
+	long		d;
+
+	i = 0;
+	s = 1;
+	r = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			s = s * -1;
+		i++;
+	}
+	if (!(nptr[i] >= 48 && nptr[i] <= 57))
+		return (0);
+	while (nptr[i] >= 48 && nptr[i] <= 57)
+	{
+		d = nptr[i] - 48;
+		if ((r * 10 + d) * s < INT_MIN)
+			error("Surpassed INT_MIN limits\n");
+		if ((r * 10 + d) * s > INT_MAX)
+			error("Surpassed INT_MAX limits\n");
+		r = r * 10 + d;
+		i++;
+	}
+	return ((int)(r * s));
 }
 
 void	is_number(char *str)
@@ -66,8 +93,7 @@ int	parser(char *str, t_framework *fw)
 	while (i >= 0)
 	{
 		is_number(split[i]);
-		number = ft_atoi(split[i]);
-		limits(number);
+		number = ft_atoi_limits(split[i]);
 		dupe_check(number, fw);
 		new = node_init(number);
 		place_node_a(fw, new);
