@@ -135,4 +135,5 @@ void	sort_small(t_framework *fw)
 		sort_four(fw);
 	if (fw->amount == 5)
 		sort_five(fw);
+	exit (EXIT_SUCCESS);
 }
