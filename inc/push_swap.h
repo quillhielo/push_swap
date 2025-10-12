@@ -20,6 +20,7 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
 	struct s_node	*next;
 }	t_node;
 
@@ -37,7 +38,7 @@ void	place_node_b(t_framework *fw, t_node *new);
 int		matrix_len(char **split);
 void	free_matrix(char **matrix);
 void	dupe_check(int number, t_framework *fw);
-void	limits(int i);
+int	ft_atoi_limits (const char *nptr);
 void	is_number(char *str);
 int		parser(char *str, t_framework *fw);
 void 	sa(t_framework *fw);
@@ -58,6 +59,10 @@ void	sort_three(t_framework *fw);
 void	sort_four(t_framework *fw);
 void	sort_five(t_framework *fw);
 void	sort_small(t_framework *fw);
+void    assign_index(t_framework *fw);
+int		get_max_bits(t_framework *fw);
+void    radix_sort(t_framework *fw);
+
 
 
 #endif
