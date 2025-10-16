@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:46 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/07 18:46:56 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/13 12:07:46 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	error(char *str)
-{
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(str, 2);
-	// FUNCION DE LIMPIEZA
-	exit(EXIT_FAILURE);
-}
 
 t_node	*node_init(int value)
 {

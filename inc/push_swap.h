@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:31:00 by alba              #+#    #+#             */
-/*   Updated: 2025/10/09 19:59:22 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:31:20 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_framework
 	t_node	*stack_a;
 	t_node	*stack_b;
 	int		amount;
+	int		moves;
 }	t_framework;
 
 void	error(char *str);
@@ -60,9 +61,8 @@ void	sort_four(t_framework *fw);
 void	sort_five(t_framework *fw);
 void	sort_small(t_framework *fw);
 void    assign_index(t_framework *fw);
-int		get_max_bits(t_framework *fw);
-void    radix_sort(t_framework *fw);
-
-
+void	stack_a_recover(t_framework *fw);
+void	radix_sort_chunk(t_framework *fw);
+int		get_chunk_size(t_framework *fw);
 
 #endif

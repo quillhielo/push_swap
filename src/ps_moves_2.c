@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_moves_2.c                                :+:      :+:    :+:   */
+/*   ps_moves_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:12 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/09 17:41:37 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:33:08 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ra(t_framework *fw)
 	temp->next = top;
 	top->next = NULL;
 	write(1, "ra\n", 3);
-
+	fw->moves++;
 }
 
 void	rb(t_framework *fw)
@@ -45,7 +45,7 @@ void	rb(t_framework *fw)
 	temp->next = top;
 	top->next = NULL;
 	write(1, "rb\n", 3);
-
+	fw->moves++;
 }
 
 void	rr(t_framework *fw)
@@ -53,4 +53,5 @@ void	rr(t_framework *fw)
 	ra(fw);
 	rb(fw);
 	write(1, "rr\n", 3);
+	fw->moves++;
 }

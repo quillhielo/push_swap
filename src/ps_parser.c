@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_parser.c                                 :+:      :+:    :+:   */
+/*   ps_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:21 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/07 18:50:00 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/13 12:16:38 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	dupe_check(int number, t_framework *fw)
 	}
 }
 
-int	ft_atoi_limits (const char *nptr)
+int	ft_atoi_limits(const char *nptr)
 {
 	size_t		i;
 	long		s;
@@ -50,10 +50,8 @@ int	ft_atoi_limits (const char *nptr)
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 	{
 		d = nptr[i] - 48;
-		if ((r * 10 + d) * s < INT_MIN)
-			error("Surpassed INT_MIN limits\n");
-		if ((r * 10 + d) * s > INT_MAX)
-			error("Surpassed INT_MAX limits\n");
+		if ((r * 10 + d) * s < INT_MIN || (r * 10 + d) * s > INT_MAX)
+			error("Surpassed INT limits\n");
 		r = r * 10 + d;
 		i++;
 	}

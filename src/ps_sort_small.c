@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_sort_small.c                             :+:      :+:    :+:   */
+/*   ps_sort_small.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:31:26 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/09 19:59:36 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/13 12:12:50 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	sort_three(t_framework *fw)
 {
-	int a;
-	int b;
-	int c;
+	int	a;
+	int	b;
+	int	c;
 
 	a = fw->stack_a->value;
 	b = fw->stack_a->next->value;
@@ -37,52 +37,30 @@ void	sort_three(t_framework *fw)
 	else if (a > b && b > c && c < a)
 	{
 		ra(fw);
-		sa(fw);	
+		sa(fw);
 	}
-}
-int	is_sorted(t_framework *fw)
-{
-	t_node	*temp;
-	temp = fw->stack_a;
-	while (temp && temp->next)
-	{
-		if(temp->value  > temp->next->value)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
 }
 
-void sort_two(t_framework *fw)
+void	sort_two(t_framework *fw)
 {
-    if (!is_sorted(fw))
-        sa(fw);
+	if (!is_sorted(fw))
+		sa(fw);
 }
-void	push_min_to_b(t_framework *fw, int min, int pos_min)
-{
-	while (fw->stack_a->value != min)
-	{
-		if (pos_min > fw->amount/2)
-			rra(fw);
-		else
-			ra(fw);
-	}
-	pb(fw);
-}
+
 void	sort_four(t_framework *fw)
 {
-	int	min;
-	int	pos;
-	int pos_min;
+	int		min;
+	int		pos;
+	int		pos_min;
 	t_node	*temp;
-	
+
 	if (is_sorted(fw))
-        return ;
+		return ;
 	min = fw->stack_a->value;
 	temp = fw->stack_a->next;
 	pos = 2;
 	pos_min = 1;
-	while(temp)
+	while (temp)
 	{
 		if (min > temp->value)
 		{
@@ -90,28 +68,27 @@ void	sort_four(t_framework *fw)
 			pos_min = pos;
 		}
 		temp = temp->next;
-		pos++;		
+		pos++;
 	}
 	push_min_to_b(fw, min, pos_min);
 	sort_three(fw);
 	pa(fw);
 }
 
-
 void	sort_five(t_framework *fw)
 {
-	int	min;
-	int	pos;
-	int pos_min;
+	int		min;
+	int		pos;
+	int		pos_min;
 	t_node	*temp;
-	
+
 	if (is_sorted(fw))
-        return ;
+		return ;
 	min = fw->stack_a->value;
 	temp = fw->stack_a->next;
 	pos = 2;
 	pos_min = 1;
-	while(temp)
+	while (temp)
 	{
 		if (min > temp->value)
 		{
@@ -119,12 +96,13 @@ void	sort_five(t_framework *fw)
 			pos_min = pos;
 		}
 		temp = temp->next;
-		pos++;		
+		pos++;
 	}
 	push_min_to_b(fw, min, pos_min);
 	sort_four(fw);
-	pa(fw);	
+	pa(fw);
 }
+
 void	sort_small(t_framework *fw)
 {
 	if (fw->amount == 2)
@@ -135,5 +113,5 @@ void	sort_small(t_framework *fw)
 		sort_four(fw);
 	if (fw->amount == 5)
 		sort_five(fw);
-	exit (EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }

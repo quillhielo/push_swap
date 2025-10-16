@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:35 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/09 17:47:37 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:41:07 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ int	main(int argc, char **argv)
 	}
 	if (fw->amount <= 1)
 		return (0);
-	if(fw->amount <= 5)
+	if (fw->amount <= 5)
 		sort_small(fw);
-	radix_sort(fw);
+	radix_sort_chunk(fw);
 	printf("----------------------------------------------------\n");
 	print_stack(fw->stack_a);
+	printf("%i\n", fw->moves);
 	return (0);
 }
