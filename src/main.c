@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	fw = ft_calloc(1, sizeof(t_framework *));
+	fw = ft_calloc(1, sizeof(t_framework));
 	if (!fw)
 		error("Allocating failure");
 	i = argc - 1;

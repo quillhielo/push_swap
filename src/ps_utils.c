@@ -16,7 +16,7 @@ t_node	*node_init(int value)
 {
 	t_node	*new;
 
-	new = (t_node *)malloc(sizeof(t_node *));
+	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		error("Allocating failure\n");
 	new->value = value;

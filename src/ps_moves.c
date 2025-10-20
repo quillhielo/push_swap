@@ -28,6 +28,20 @@ void	sa(t_framework *fw)
 	fw->moves++;
 }
 
+void sa_no_print(t_framework *fw)
+{
+	t_node	*top;
+	t_node	*bottom;
+
+	if (!fw->stack_a || !fw->stack_a->next)
+		return ;
+	top = fw->stack_a;
+	bottom = fw->stack_a->next;
+	top->next = bottom->next;
+	bottom->next = top;
+	fw->stack_a = bottom;
+}
+
 void	sb(t_framework *fw)
 {
 	t_node	*top;
@@ -44,10 +58,23 @@ void	sb(t_framework *fw)
 	fw->moves++;
 }
 
+void	sb_no_print(t_framework *fw)
+{
+	t_node	*top;
+	t_node	*bottom;
+
+	if (!fw->stack_b || !fw->stack_b->next)
+		return ;
+	top = fw->stack_b;
+	bottom = fw->stack_b->next;
+	top->next = bottom->next;
+	bottom->next = top;
+	fw->stack_b = bottom;
+}
 void	ss(t_framework *fw)
 {
-	sa(fw);
-	sb(fw);
+	sa_no_print(fw);
+	sb_no_print(fw);
 	write(1, "ss\n", 3);
 	fw->moves++;
 }

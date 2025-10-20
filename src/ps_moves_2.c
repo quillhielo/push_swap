@@ -50,8 +50,42 @@ void	rb(t_framework *fw)
 
 void	rr(t_framework *fw)
 {
-	ra(fw);
-	rb(fw);
+	ra_no_print(fw);
+	rb_no_print(fw);
 	write(1, "rr\n", 3);
+	fw->moves++;
+}
+
+void	ra_no_print(t_framework *fw)
+{
+	t_node	*top;
+	t_node	*temp;
+
+	if (!fw->stack_a || !fw->stack_a->next)
+		return ;
+	top = fw->stack_a;
+	temp = fw->stack_a;
+	fw->stack_a = temp->next;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = top;
+	top->next = NULL;
+	fw->moves++;
+}
+
+void	rb_no_print(t_framework *fw)
+{
+	t_node	*top;
+	t_node	*temp;
+
+	if (!fw->stack_b || !fw->stack_b->next)
+		return ;
+	top = fw->stack_b;
+	temp = fw->stack_b;
+	fw->stack_b = temp->next;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = top;
+	top->next = NULL;
 	fw->moves++;
 }
