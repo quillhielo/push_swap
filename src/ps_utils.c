@@ -6,19 +6,19 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:46 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/13 12:07:46 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/22 21:19:53 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*node_init(int value)
+t_node	*node_init(int value, t_framework *fw)
 {
 	t_node	*new;
 
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
-		error("Allocating failure\n");
+		error(fw);
 	new->value = value;
 	new->index = -1;
 	new->next = NULL;

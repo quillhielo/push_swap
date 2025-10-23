@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:12 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/16 20:32:36 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:41:21 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	rra_no_print(t_framework *fw)
 	bottom->next = fw->stack_a;
 	fw->stack_a = bottom;
 }
+
 void	rrb_no_print(t_framework *fw)
 {
 	t_node	*bottom;

@@ -6,7 +6,7 @@
 #    By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 14:45:50 by acarbajo          #+#    #+#              #
-#    Updated: 2025/10/16 18:40:34 by acarbajo         ###   ########.fr        #
+#    Updated: 2025/10/22 17:54:29 by acarbajo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFLAGS = -Wall -Wextra -Werror -I inc -I inc/libft
 SRCDIR = src
 
 SRCS = $(SRCDIR)/main.c $(SRCDIR)/ps_utils.c $(SRCDIR)/ps_utils_2.c $(SRCDIR)/ps_parser.c $(SRCDIR)/ps_moves.c \
-		$(SRCDIR)/ps_moves_2.c $(SRCDIR)/ps_moves_3.c $(SRCDIR)/ps_sort_small.c $(SRCDIR)/ps_radix_chunks.c \
+		$(SRCDIR)/ps_moves_1.c $(SRCDIR)/ps_moves_2.c $(SRCDIR)/ps_moves_3.c $(SRCDIR)/ps_sort_small.c \
+		$(SRCDIR)/ps_radix_chunks_utils.c $(SRCDIR)/ps_radix_chunks.c \
 
 OBJDIR = objs
 

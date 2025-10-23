@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:12 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/16 20:32:52 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:40:48 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sa(t_framework *fw)
 	fw->moves++;
 }
 
-void sa_no_print(t_framework *fw)
+void	sa_no_print(t_framework *fw)
 {
 	t_node	*top;
 	t_node	*bottom;
@@ -71,36 +71,11 @@ void	sb_no_print(t_framework *fw)
 	bottom->next = top;
 	fw->stack_b = bottom;
 }
+
 void	ss(t_framework *fw)
 {
 	sa_no_print(fw);
 	sb_no_print(fw);
 	write(1, "ss\n", 3);
-	fw->moves++;
-}
-
-void	pa(t_framework *fw)
-{
-	t_node	*new_a;
-
-	if (fw->stack_b == NULL)
-		return ;
-	new_a = fw->stack_b;
-	fw->stack_b = fw->stack_b->next;
-	new_a->next = NULL;
-	place_node_a(fw, new_a);
-	write(1, "pa\n", 3);
-	fw->moves++;
-}
-
-void	pb(t_framework *fw)
-{
-	t_node	*new_b;
-
-	new_b = fw->stack_a;
-	fw->stack_a = fw->stack_a->next;
-	new_b->next = NULL;
-	place_node_b(fw, new_b);
-	write(1, "pb\n", 3);
 	fw->moves++;
 }

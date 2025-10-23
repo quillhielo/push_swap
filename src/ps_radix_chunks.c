@@ -1,68 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_radix_chunks.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/22 17:41:39 by acarbajo          #+#    #+#             */
+/*   Updated: 2025/10/22 20:01:00 by acarbajo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	assign_index(t_framework *fw)
+void	shorter_rotate(int pos, t_node *stack, t_framework *fw)
 {
-	int		i;
-	t_node	*temp;
-	t_node	*min;
-
-	i = 0;
-	while (i < fw->amount)
-	{
-		temp = fw->stack_a;
-		min = NULL;
-		while (temp)
-		{
-			if (temp->index == -1 && (!min || min->value > temp->value))
-				min = temp;
-			temp = temp->next;
-		}
-		if (min)
-			min->index = i;
-		i++;
-	}
-}
-
-int	get_chunk_size(t_framework *fw)
-{
-	if (fw->amount > 300)
-		return (60);
-	else if (fw->amount > 100)
-		return (45);
+	if (pos <= stack_size(stack) / 2)
+		while (pos-- > 0)
+			ra(fw);
 	else
-		return (15);
-}
-
-int	stack_size(t_node *stack)
-{
-	int	size;
-	t_node	*temp;
-
-	size = 0;
-	temp = stack;
-	while (temp)
 	{
-		temp = temp->next;
-		size++;
+		pos = stack_size(stack) - pos;
+		while (pos-- > 0)
+			rra(fw);
 	}
-	return (size);
-}
-
-int	get_first_pos_in_chunk(t_node *stack, int start, int end)
-{
-	int		pos;
-	t_node	*temp;
-
-	pos = 0;
-	temp = stack;
-	while (temp)
-	{
-		if (temp->index >= start && temp->index <= end)
-			return (pos);
-		pos++;
-		temp = temp->next;
-	}
-	return (-1);
 }
 
 void	push_chunks_to_b(t_framework *fw)
@@ -76,33 +36,19 @@ void	push_chunks_to_b(t_framework *fw)
 	chunk_size = get_chunk_size(fw);
 	start = 0;
 	end = chunk_size - 1;
-
 	while (fw->stack_a)
 	{
 		pos = get_first_pos_in_chunk(fw->stack_a, start, end);
-
 		if (pos == -1)
 		{
 			start += chunk_size;
 			end += chunk_size;
 			pos = get_first_pos_in_chunk(fw->stack_a, start, end);
 			if (pos == -1)
-				break;
+				break ;
 		}
-
-		if (pos <= stack_size(fw->stack_a) / 2)
-			while (pos-- > 0)
-				ra(fw);
-		else
-		{
-			pos = stack_size(fw->stack_a) - pos;
-			while (pos-- > 0)
-				rra(fw);
-		}
-
+		shorter_rotate(pos, fw->stack_a, fw);
 		pb(fw);
-
-		// Repasar esta condicion
 		if (fw->stack_b && fw->stack_b->index < start + (chunk_size / 2))
 			rb(fw);
 	}
@@ -125,15 +71,13 @@ void	stack_a_recover(t_framework *fw)
 			pos++;
 		}
 		if (!temp)
-			break;
-
+			break ;
 		if (pos <= stack_size(fw->stack_b) / 2)
 			while (fw->stack_b->index != index)
 				rb(fw);
 		else
 			while (fw->stack_b->index != index)
 				rrb(fw);
-
 		pa(fw);
 		index--;
 	}

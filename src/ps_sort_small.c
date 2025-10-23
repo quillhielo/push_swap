@@ -6,7 +6,7 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:31:26 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/13 12:12:50 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/22 19:24:23 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,6 @@ void	sort_small(t_framework *fw)
 		sort_four(fw);
 	if (fw->amount == 5)
 		sort_five(fw);
-	exit(EXIT_SUCCESS);
+	clean_framework(fw);
+	exit (EXIT_SUCCESS);
 }

@@ -6,30 +6,17 @@
 /*   By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:03:46 by acarbajo          #+#    #+#             */
-/*   Updated: 2025/10/13 12:12:04 by acarbajo         ###   ########.fr       */
+/*   Updated: 2025/10/22 21:30:09 by acarbajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(char *str)
+void	error(t_framework *fw)
 {
 	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(str, 2);
-	// FUNCION DE LIMPIEZA
+	clean_framework(fw);
 	exit(EXIT_FAILURE);
-}
-
-void	push_min_to_b(t_framework *fw, int min, int pos_min)
-{
-	while (fw->stack_a->value != min)
-	{
-		if (pos_min > fw->amount / 2)
-			rra(fw);
-		else
-			ra(fw);
-	}
-	pb(fw);
 }
 
 int	is_sorted(t_framework *fw)
@@ -42,6 +29,44 @@ int	is_sorted(t_framework *fw)
 		if (temp->value > temp->next->value)
 			return (0);
 		temp = temp->next;
+	}
+	return (1);
+}
+
+void	free_stack(t_node *stack)
+{
+	t_node	*temp;
+
+	temp = stack;
+	while (stack)
+	{
+		stack = stack->next;
+		free(temp);
+		temp = stack;
+	}
+}
+
+void	clean_framework(t_framework *fw)
+{
+	if (!fw)
+		return ;
+	if (fw->stack_a)
+		free_stack(fw->stack_a);
+	if (fw->stack_b)
+		free_stack(fw->stack_b);
+	free(fw);
+}
+
+int	is_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (0);
+		i++;
 	}
 	return (1);
 }
