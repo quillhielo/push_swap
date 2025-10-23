@@ -1,0 +1,152 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    READ_ME                                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acarbajo <acarbajo@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/10/23 20:02:12 by acarbajo          #+#    #+#              #
+#    Updated: 2025/10/23 20:15:15 by acarbajo         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+ Push_swap
+¿Qué es el programa push_swap?
+
+El programa push_swap recibe una lista de números enteros a través de argumentos.
+Su objetivo es ordenar los datos en orden ascendente utilizando un conjunto limitado de operaciones y dos pilas (stack a y stack b), en el menor número posible de movimientos.
+ ¿Qué es una pila?
+
+Una pila (stack) es una estructura de datos que almacena elementos siguiendo la regla LIFO (Last In, First Out), es decir, el último elemento que entra es el primero que sale.
+
+Operaciones básicas:
+
+Push: Añadir un elemento al top de la pila.
+
+Pop: Eliminar el elemento que está en el top.
+
+Ejemplo visual:
+Si apilas [1, 2, 3] (siendo 3 el último), el top es 3.
+Si haces un pop, el 3 sale y el top pasa a ser 2.
+
+ ¿Qué es un algoritmo de ordenación?
+
+Un algoritmo de ordenación es un conjunto de pasos o reglas que permiten reorganizar los elementos de una lista en un orden determinado (por ejemplo, de menor a mayor).
+
+Ejemplos comunes:
+
+Bubble Sort: compara pares de elementos adyacentes y los intercambia si están en orden incorrecto.
+
+Insertion Sort: inserta cada elemento en su posición correcta dentro de una lista parcialmente ordenada.
+
+Radix Sort: ordena números considerando cada dígito individual (ideal para grandes listas).
+
+¿Qué es una lista o estructura anidada?
+
+En C, una lista enlazada es una colección de nodos que almacenan un valor y un puntero al siguiente nodo.
+Permite insertar y eliminar elementos dinámicamente, a diferencia de los arrays.
+
+En push_swap, se suele representar la pila como una lista enlazada donde cada nodo contiene:
+
+el valor del número,
+
+su posición ordenada,
+
+y un puntero al siguiente nodo.
+
+ ¿Qué es la complejidad de un algoritmo?
+
+La complejidad mide el tiempo o recursos que un algoritmo necesita para completarse según el tamaño de los datos de entrada.
+
+Notación Big O
+
+Se usa la notación O(n) para expresar la eficiencia:
+
+O(1): constante, muy rápida.
+
+O(n): lineal.
+
+O(n²): cuadrática, crece mucho con la cantidad de datos.
+
+O(n log n): eficiente para grandes volúmenes.
+
+En push_swap, el objetivo es minimizar la complejidad total de los movimientos.
+
+ Estrategia en el proyecto
+ Parseo
+
+Validar los argumentos recibidos.
+
+Comprobar que no hay duplicados, caracteres no válidos ni enteros fuera del rango int.
+
+Convertir los datos en una lista (stack a).
+
+ Sort Small (pocos números)
+
+Usar algoritmos simples como Bubble Sort o Insertion Sort.
+
+Se implementan manualmente con las operaciones permitidas (sa, ra, rra, etc.).
+
+ Sort Large (muchos números)
+
+Radix Sort: método eficiente basado en bits.
+
+Sort in Chunks: una variante del radix adaptada al tamaño del stack.
+
+ Elementos clave del proyecto
+
+Uso de listas enlazadas como representación de las pilas.
+
+Conjunto limitado de operaciones permitidas (sa, pb, ra, etc.).
+
+Optimización de movimientos.
+
+Control de errores y validación de argumentos.
+
+Comprensión de algoritmos y complejidad.
+
+ Comandos disponibles
+sa  # swap a
+sb  # swap b
+ss  # swap a y b
+pa  # push a
+pb  # push b
+ra  # rotate a
+rb  # rotate b
+rr  # rotate a y b
+rra # reverse rotate a
+rrb # reverse rotate b
+rrr # reverse rotate a y b
+
+🚀 Cómo ejecutar el proyecto
+
+Compila el programa con el Makefile incluido:
+
+make
+
+
+Esto generará el ejecutable push_swap.
+
+Ejemplo de uso:
+./push_swap 2 1 3
+
+
+Salida esperada:
+
+sa
+
+
+Para probar con un conjunto más grande:
+
+./push_swap 4 67 3 87 23
+
+
+Puedes ver la lista de movimientos que tu programa genera para ordenar los números.
+También puedes verificar si el resultado está correctamente ordenado combinándolo con el checker (si lo tienes implementado):
+
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+
+
+Si está bien ordenado, el checker mostrará OK.
+Si hay un error o el orden no es correcto, mostrará KO.
+
